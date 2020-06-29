@@ -19,6 +19,8 @@ import schedulecalendar from 'vue-schedule-calendar'
                             @event-dragend="changeDate"></schedulecalendar>
 
 ```
+
+
 ## 事件
 
 1. date-click(e,date)       点击日期
