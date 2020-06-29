@@ -5,8 +5,21 @@
 ## Install
 
 ```bash
+安装插件
 npm i vue-schedule-calendar -S
+
+引入插件
+import schedulecalendar from 'vue-schedule-calendar'
+ components:{
+      schedulecalendar
+    }
+页面导入 
+    <schedulecalendar :events="events"
+                            :dateItemRender="itemRender"
+                            @event-dragend="changeDate"></schedulecalendar>
+    
 ```
+
 
 ## Build Setup
 
