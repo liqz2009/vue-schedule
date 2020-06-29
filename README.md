@@ -1,12 +1,14 @@
-# vue-schedule-calendar
+# vue-schedule
+## 在原作者的插件vue-schedule-calendar上做了一些修改
 
 [demo](https://yscoder.github.io/vue-schedule-calendar/)
+
 
 ## Install
 
 ```bash
 安装插件
-npm i vue-schedule-calendar -S
+npm i vue-schedule -S
 
 引入插件
 import schedulecalendar from 'vue-schedule-calendar'
