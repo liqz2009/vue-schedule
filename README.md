@@ -19,13 +19,14 @@ import schedulecalendar from 'vue-schedule-calendar'
                             @event-dragend="changeDate"></schedulecalendar>
 
 ```
-##事件
-1、date-click(e,date)       点击日期
-2、event-click(e,item)       点击标签
-3、event-dragend(e,item,date)  拖曳结束
-4、event-dragstart(e,item,date)  拖曳开始
-5、event-dragenter(e,item,date)  拖曳中
-6、month-change(year,month)   月份改变
+## 事件
+
+1. date-click(e,date)       点击日期
+2. event-click(e,item)       点击标签
+3. event-dragend(e,item,date)  拖曳结束
+4. event-dragstart(e,item,date)  拖曳开始
+5. event-dragenter(e,item,date)  拖曳中
+6. month-change(year,month)   月份改变
 
 
 
