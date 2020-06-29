@@ -1,24 +1,23 @@
 # vue-schedule
 ## 在原作者的插件vue-schedule-calendar上做了一些修改
 
-[demo](https://yscoder.github.io/vue-schedule-calendar/)
+[demo](https://liqz2009.github.io/vue-schedule/)
 
 
 ## Install
 
 ```bash
 安装插件
-npm i vue-schedule -S
+npm install vue-schedule https://github.com/liqz2009/vue-schedule.git
 
 引入插件
-import schedulecalendar from 'vue-schedule-calendar'
+import schedulecalendar from 'vue-schedule'
  components:{
       schedulecalendar
     }
 页面导入
     <schedulecalendar :events="events"
-                            :dateItemRender="itemRender"
-                            @event-dragend="changeDate"></schedulecalendar>
+                @event-dragend="changeDate"></schedulecalendar>
 
 ```
 
