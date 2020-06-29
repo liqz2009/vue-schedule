@@ -1,6 +1,6 @@
 <template>
     <div class="schedule-calendar-date"
-         :class="[type, { today: isToday, dragged: draggedIndex === index }]"
+         :class="[type, { today: isToday, dragged: draggedIndex === index,active:isActive===date }]"
          @dragover.prevent=""
          @dragenter.prevent="dragenter"
          @drop="onDrop"
@@ -16,8 +16,8 @@
              :class="{ expanded }"
              :style="detailsPost"
              ref="details">
-            <div v-show="expanded"
-                 class="schedule-calendar-details-hd">{{ dateString }}</div>
+            <a v-show="expanded"
+                 class="schedule-calendar-details-hd">{{ dateString }}</a>
             <div class="schedule-calendar-details-bd">
                 <event-item v-if="details.length"
                             v-for="item in displayDetails"
@@ -45,12 +45,14 @@ export default {
         data: Array,
         index: Number,
         draggedIndex: Number,
-        itemRender: Function
+        itemRender: Function,
+        isActive:''
     },
     data() {
         return {
             volume: 0,
-            expanded: false
+            expanded: false,
+
         }
     },
     computed: {
@@ -117,6 +119,7 @@ export default {
             EventBus.$emit('item-drop', e, format(this.date, 'yyyy-MM-dd'), this.type, this.index)
         },
         cellClick(e) {
+           this.$emit('isActive',this.date);
             // 此时为收缩单页格，不触发 date-click
             if (Store.hasExpand) {
                 // 设为 false，下次正常触发 date-click
@@ -135,9 +138,11 @@ export default {
     }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped="scoped">
 @import "./variables.less";
-
+.active{
+        background-color: #2196f3;
+    }
 .schedule-calendar- {
     &date {
         position: relative;
@@ -220,6 +225,7 @@ export default {
         font-size: 13px;
         color: @sc-primary-color;
     }
+
 }
 
 </style>

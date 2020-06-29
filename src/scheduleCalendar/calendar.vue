@@ -11,6 +11,7 @@
                    :data="events"
                    :itemRender="dateItemRender"></month>
         </div>
+
     </div>
 </template>
 <script>
@@ -49,6 +50,8 @@ export default {
         updateView(year, month) {
             this.year = year
             this.month = month
+            console.log('[month-change]',year+':'+month)
+            this.$emit('month-change',year,month)
         },
         cellDragenter(e, date, type, index) {
             this.$emit('event-dragenter', e, this.dragItem, date)
@@ -69,7 +72,12 @@ export default {
         dateClick(e, date) {
             console.log('[date-click]:', date)
             this.$emit('date-click', e, date)
+        },
+        monthClick(year,month)
+        {
+            this.$emit('month-click',year,month)
         }
+
     },
     created() {
         EventBus.$on('cell-dragenter', this.cellDragenter)
@@ -77,6 +85,7 @@ export default {
         EventBus.$on('item-drop', this.itemDrop)
         EventBus.$on('item-click', this.itemClick)
         EventBus.$on('date-click', this.dateClick)
+
     },
     destoryed() {
         EventBus.$off()
@@ -118,6 +127,12 @@ export default {
             overflow: hidden;
             background: @sc-body-color;
         }
+    }
+    .pop-alt{
+        position: absolute;
+        background: white;
+        display: none;
+
     }
 }
 

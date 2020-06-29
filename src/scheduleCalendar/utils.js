@@ -116,7 +116,7 @@ const tryParse = obj => (typeof obj === 'string' ? new Date(obj) : obj)
  * @param {*} two
  */
 export const isSameDay = (one, two) => {
-    const oneDate = tryParse(one)
+   const oneDate = tryParse(one)
     const twoDate = tryParse(two)
     return (
         oneDate.getDate() === twoDate.getDate() &&
@@ -140,4 +140,10 @@ export const format = (date, exp = 'yyyy年MM月dd日') => {
 // 记录一些公共数据
 export const Store = {
     hasExpand: false // 当前是否有展开的单元格
+}
+export const pop={
+    show(x,y,title)
+    {
+        document.getElementById()
+    }
 }

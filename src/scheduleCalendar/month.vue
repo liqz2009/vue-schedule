@@ -10,6 +10,8 @@
                    :draggedIndex="draggedIndex"
                    :itemRender="itemRender"
                    @highlight="highlight"
+                   :isActive="isActive"
+                   @isActive="bgActive"
                    :key="index"></date-cell>
     </div>
 </template>
@@ -33,7 +35,8 @@ export default {
             viewTransition: 'sc-moveTo',
             draggedIndex: -1,
             direction: 'Left',
-            animated: false
+            animated: false,
+            isActive:''
         }
     },
     computed: {
@@ -58,6 +61,9 @@ export default {
         },
         highlight(index) {
             this.draggedIndex = index
+        },
+        bgActive(date){
+            this.isActive=date;
         }
     },
     watch: {
